@@ -1,5 +1,4 @@
 import Button from "../Button/Button";
-import Text from "../Text/Text";
 
 export default function TrucksCard() {
   return (
@@ -24,9 +23,7 @@ export default function TrucksCard() {
         <p></p>
       </div>
 
-      <Text>
-        Embrace simplicity and freedom with the Mavericks panel truck...
-      </Text>
+      <p>Embrace simplicity and freedom with the Mavericks panel truck...</p>
 
       <div>
         <div>

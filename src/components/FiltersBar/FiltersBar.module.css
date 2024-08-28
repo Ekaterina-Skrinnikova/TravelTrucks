@@ -1,0 +1,92 @@
+.container {
+  width: 360px;
+}
+
+.label {
+  font-size: 16px;
+  line-height: calc(24 / 16);
+  text-align: left;
+  color: rgba(108, 113, 123, 1);
+}
+
+.input {
+  width: 360px;
+  /* height: 56px; */
+  padding: 16px 48px 16px 48px;
+  background-color: rgba(247, 247, 247, 1);
+  border-color: transparent;
+  border-radius: 12px;
+}
+.input::before {
+  content: "afs";
+}
+
+.input::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: calc(24 / 16);
+  text-align: left;
+}
+
+.textFilter {
+  margin-top: 40px;
+  margin-bottom: 32px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: calc(24 / 20);
+  color: rgba(71, 84, 103, 1);
+}
+
+.list {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
+
+.text {
+  margin-bottom: 24px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: calc(24 / 20);
+  color: rgba(16, 24, 40, 1);
+}
+
+.wrapperBorder {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 12px;
+  row-gap: 8px;
+  padding: 24px 0 0 0;
+  border-top: 1px solid rgba(218, 221, 225, 1);
+}
+
+.wrapper {
+  box-sizing: border-box;
+  width: 112px;
+  height: 96px;
+  /* padding: 16px 40px 16px 40px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid rgba(218, 221, 225, 1);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: calc(24 / 16);
+  letter-spacing: -0.005em;
+  color: rgba(16, 24, 40, 1);
+  text-align: center;
+}
+
+.wrapper:active,
+.wrapper:hover {
+  border-color: rgba(228, 72, 72, 1);
+}
+
+.icon {
+  margin-bottom: 8px;
+  width: 32px;
+  height: 32px;
+}
