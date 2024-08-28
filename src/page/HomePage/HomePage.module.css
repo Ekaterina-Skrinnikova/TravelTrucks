@@ -1,0 +1,37 @@
+.title {
+  margin-bottom: 16px;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: calc(32 / 48);
+  color: rgba(247, 247, 247, 1);
+}
+
+.text {
+  margin-bottom: 40px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: calc(32 / 24);
+  color: rgba(247, 247, 247, 1);
+}
+
+.overlay {
+  padding: 260px 64px;
+  background-size: cover;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url(../../images/hero-1x.jpg);
+}
+
+@media (min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  .overlay {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2)
+      ),
+      url(../../images/hero-2x.jpg);
+  }
+}

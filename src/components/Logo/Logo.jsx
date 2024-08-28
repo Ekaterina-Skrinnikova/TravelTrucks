@@ -1,7 +1,10 @@
+import sprite from "../../images/sprite.svg";
+import css from "../Logo/Logo.module.css";
+
 export default function Logo() {
   return (
-    <p>
-      Travel<span>Trucks</span>
-    </p>
+    <svg className={css.img}>
+      <use href={`${sprite}#icon-TravelTrucks`}></use>
+    </svg>
   );
 }

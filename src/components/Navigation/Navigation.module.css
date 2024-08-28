@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  column-gap: 32px;
+  margin: 0 auto;
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: calc(24 / 16);
+  color: rgba(16, 24, 40, 1);
+}
+
+.text.active {
+  color: rgba(216, 67, 67, 1);
+}
