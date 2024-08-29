@@ -2,8 +2,10 @@ import clsx from "clsx";
 import Button from "../Button/Button";
 import sprite from "../../images/sprite.svg";
 import css from "../../components/TrucksCard/TrucksCard.module.css";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function TrucksCard({ camper }) {
+  const navigate = useNavigate();
   const arrIcon = [
     "icon-diagram",
     "icon-fuel-pump",
@@ -30,6 +32,10 @@ export default function TrucksCard({ camper }) {
     camper.reviews.reduce((total, item) => {
       return total + item.reviewer_rating;
     }, 0) / camper.reviews.length;
+
+  const handleClick = () => {
+    navigate("/catalog/:id");
+  };
 
   return (
     <div className={css.container}>
@@ -80,8 +86,9 @@ export default function TrucksCard({ camper }) {
             </li>
           ))}
         </ul>
-
-        <Button>Show more</Button>
+        <Link to={`/catalog/${camper.id}`}>
+          <Button onClick={handleClick}>Show more</Button>
+        </Link>
       </div>
     </div>
   );

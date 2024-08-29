@@ -1,3 +1,10 @@
+import TrucksCardDetails from "../../components/TrucksCardDetails/TrucksCardDetails";
+
 export default function DetailsPage() {
-  return <div>Hello</div>;
+  return (
+    <div>
+      Hello
+      <TrucksCardDetails />
+    </div>
+  );
 }
