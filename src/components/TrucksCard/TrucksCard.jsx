@@ -68,8 +68,10 @@ export default function TrucksCard({ camper }) {
           </div>
         </div>
 
-        {camper.description.length > 60 && (
-          <p className={css.text}>{camper.description.slice(0, 60)}...</p>
+        {camper.description.length > 60 ? (
+          <p className={css.text}>{camper.description.slice(0, 60) + "..."}</p>
+        ) : (
+          <p className={css.text}>{camper.description}</p>
         )}
 
         <ul className={css.flexList}>
@@ -86,6 +88,7 @@ export default function TrucksCard({ camper }) {
             </li>
           ))}
         </ul>
+
         <Link to={`/catalog/${camper.id}`}>
           <Button onClick={handleClick}>Show more</Button>
         </Link>

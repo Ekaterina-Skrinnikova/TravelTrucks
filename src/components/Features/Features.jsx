@@ -1,11 +1,13 @@
-import Text from "../Text/Text";
+import { useSelector } from "react-redux";
+import { selectCamper } from "../../redux/campers/selectors";
 
 export default function Features() {
+  const camper = useSelector(selectCamper);
   return (
     <div>
       <ul></ul>
 
-      <Text>Vehicle details</Text>
+      <p>Vehicle details</p>
       <div>
         <ul>
           <li>Form</li>
@@ -16,12 +18,12 @@ export default function Features() {
           <li>Comsumption</li>
         </ul>
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>{camper.form}</li>
+          <li>{camper.length}</li>
+          <li>{camper.width}</li>
+          <li>{camper.height}</li>
+          <li>{camper.tank}</li>
+          <li>{camper.consumption}</li>
         </ul>
       </div>
     </div>

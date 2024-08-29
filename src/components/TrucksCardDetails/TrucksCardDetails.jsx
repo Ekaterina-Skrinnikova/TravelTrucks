@@ -10,9 +10,7 @@ import { selectCamper } from "../../redux/campers/selectors";
 export default function TrucksCardDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
-
   const camper = useSelector(selectCamper);
-  console.log(camper);
 
   useEffect(() => {
     dispatch(fetchCamperById(id));
@@ -48,13 +46,17 @@ export default function TrucksCardDetails() {
         </div>
       </div>
 
-      <p className={css.title}>€{camper.price}.00</p>
+      <p className={css.titlePrice}>€{camper.price + ",00"} </p>
 
-      <img className={css.img} src={camper.gallery[0].thumb} />
+      <ul className={css.flex}>
+        {camper.gallery.map((item) => (
+          <li className={css.item} key={item.thumb}>
+            <img className={css.img} src={item.thumb} alt="Trucks" />
+          </li>
+        ))}
+      </ul>
 
-      {camper.description.length > 60
-        ? camper.description.slice(0, 60) + "..."
-        : camper.description}
+      <p className={css.text}>{camper.description}</p>
     </div>
   );
 }

@@ -1,23 +1,45 @@
 .container {
+  margin-bottom: 60px;
+}
+
+.title {
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: calc(32 / 24);
+  text-align: left;
+}
+
+.flexInfo {
+  margin-bottom: 16px;
   display: flex;
-  column-gap: 24px;
-  height: 320px;
-  padding: 24px;
-  border-radius: 20px;
-  border: 1px solid rgba(218, 221, 225, 1);
+  column-gap: 16px;
+  align-items: center;
+}
+
+.titlePrice {
+  margin-bottom: 28px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: calc(32 / 24);
+  text-align: left;
+}
+
+.flex {
+  margin-bottom: 28px;
+  display: flex;
+  column-gap: 30px;
+}
+
+.item {
+  border-radius: 10px;
 }
 
 .img {
   width: 292px;
-  height: 320px;
+  height: 312px;
   border-radius: 10px;
-  /* object-fit: fill; */
-}
-
-.flex {
-  margin-bottom: 8px;
-  display: flex;
-  justify-content: space-between;
+  object-fit: cover;
 }
 
 .flexPrice {
@@ -26,24 +48,10 @@
   align-items: center;
 }
 
-.flexInfo {
-  margin-bottom: 24px;
-  display: flex;
-  column-gap: 16px;
-  align-items: center;
-}
-
 .flexRating,
 .flexLocation {
   display: flex;
   align-items: center;
-}
-
-.title {
-  font-size: 24px;
-  font-weight: 600;
-  line-height: calc(32 / 24);
-  text-align: left;
 }
 
 .iconHeart {
@@ -61,27 +69,5 @@
 }
 
 .text {
-  margin-bottom: 24px;
-}
-
-.flexList {
-  margin-bottom: 24px;
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 8px;
-  row-gap: 8px;
-}
-
-.item {
-  display: flex;
-  column-gap: 8px;
-  padding: 12px 18px;
-  border-radius: 100px;
-  background-color: rgba(242, 244, 247, 1);
-  font-weight: 500;
-}
-
-.iconList {
-  width: 20px;
-  height: 20px;
+  color: rgba(71, 84, 103, 1);
 }
