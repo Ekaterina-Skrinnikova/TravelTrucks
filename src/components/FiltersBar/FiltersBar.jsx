@@ -5,10 +5,20 @@ import css from "../FiltersBar/FiltersBar.module.css";
 export default function FiltersBar() {
   return (
     <div className={css.container}>
-      <label className={css.label}>
+      {/* <label className={css.label}>
         Location
         <input className={css.input} type="text" placeholder="City" />
-      </label>
+      </label> */}
+
+      <div>
+        <p className={css.label}>Location</p>
+        <div className={css.input}>
+          <svg className={css.iconCity}>
+            <use href={`${sprite}#icon-Map`}></use>
+          </svg>
+          <p className={css.textCity}>City</p>
+        </div>
+      </div>
 
       <p className={css.textFilter}>Filters</p>
 
