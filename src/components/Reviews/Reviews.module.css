@@ -1,3 +1,43 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 44px;
   width: 631px;
+}
+
+.flex {
+  display: flex;
+  column-gap: 16px;
+  align-items: center;
+  font-weight: 500;
+}
+
+.around {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(242, 244, 247, 1);
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: calc(32 / 24);
+  color: rgba(228, 72, 72, 1);
+}
+
+.wrapper {
+  margin-top: 4px;
+  /* margin-bottom: 16px; */
+  display: flex;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: rgba(242, 244, 247, 1);
+}
+
+.text {
+  margin-top: 16px;
 }

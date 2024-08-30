@@ -1,21 +1,21 @@
 import clsx from "clsx";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import sprite from "../../images/sprite.svg";
 import css from "../../components/TrucksCardDetails/TrucksCardDetails.module.css";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCamperById } from "../../redux/campers/operations";
+// import { useEffect } from "react";
+import { useSelector } from "react-redux";
+// import { fetchCamperById } from "../../redux/campers/operations";
 import { selectCamper } from "../../redux/campers/selectors";
 
 export default function TrucksCardDetails() {
-  const dispatch = useDispatch();
-  const { id } = useParams();
+  // const dispatch = useDispatch();
+  // const { id } = useParams();
   const camper = useSelector(selectCamper);
   console.log(camper);
 
-  useEffect(() => {
-    dispatch(fetchCamperById(id));
-  }, [dispatch, id]);
+  // useEffect(() => {
+  //   dispatch(fetchCamperById(id));
+  // }, [dispatch, id]);
 
   if (!camper) {
     return <p>Loading...</p>;

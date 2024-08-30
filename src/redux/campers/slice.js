@@ -5,13 +5,14 @@ const initialState = {
   items: [],
   item: null,
 
-  perPage: 4,
   currentPage: 1,
+  perPage: 4,
   totalVisible: 4,
 
   loading: false,
   error: null,
 };
+
 const campersSlice = createSlice({
   name: "campers",
   initialState,

@@ -1,47 +1,38 @@
 import { useSelector } from "react-redux";
 import { selectCamper } from "../../redux/campers/selectors";
-// import sprite from "../../images/sprite.svg";
+import sprite from "../../images/sprite.svg";
 import css from "../../components/Features/Features.module.css";
-// import { useEffect } from "react";
-// import { fetchCamperById } from "../../redux/campers/operations";
-// import { useParams } from "react-router-dom";
 
 export default function Features() {
-  // const dispatch = useDispatch();
-  // const { id } = useParams();
-  // const arrIcon = [
-  //   "icon-diagram",
-  //   "icon-fuel-pump",
-  //   "icon-wind",
-  //   "icon-bi_droplet",
-  //   "icon-cup-hot",
-  //   "icon-tv",
-  //   "icon-ui-radios",
-  // ];
-  // const arrKey = [
-  //   "transmission",
-  //   "engine",
-  //   "AC",
-  //   "bathroom",
-  //   "kitchen",
-  //   "TV",
-  //   "radio",
-  //   "refrigerator",
-  //   "microwave",
-  //   "gas",
-  //   "water",
-  // ];
-
-  // useEffect(() => {
-  //   dispatch(fetchCamperById(id));
-  // }, [dispatch, id]);
+  const arrIcon = [
+    "icon-diagram",
+    "icon-fuel-pump",
+    "icon-wind",
+    "icon-ui-radios",
+    "icon-bi_droplet",
+    "icon-cup-hot",
+    "icon-tv",
+  ];
+  const arrKey = [
+    "transmission",
+    "engine",
+    "AC",
+    "radio",
+    "bathroom",
+    "kitchen",
+    "TV",
+    "refrigerator",
+    "microwave",
+    "gas",
+    "water",
+  ];
 
   const camper = useSelector(selectCamper);
-  console.log(camper);
+  // console.log(camper);
 
   return (
     <div className={css.container}>
-      {/* <ul className={css.flexList}>
+      <ul className={css.flexList}>
         {arrIcon.map((icon, i) => (
           <li className={css.item} key={i}>
             <svg className={css.iconList}>
@@ -54,25 +45,28 @@ export default function Features() {
             )}
           </li>
         ))}
-      </ul> */}
+      </ul>
 
-      <p>Vehicle details</p>
-      <div>
-        <ul>
-          <li>Form</li>
-          <li>Length</li>
-          <li>Width</li>
-          <li>Height</li>
-          <li>Tank</li>
-          <li>Comsumption</li>
+      <div className={css.border}>
+        <p className={css.text}>Vehicle details</p>
+      </div>
+
+      <div className={css.wrapper}>
+        <ul className={css.list}>
+          <li className={css.textItem}>Form</li>
+          <li className={css.textItem}>Length</li>
+          <li className={css.textItem}>Width</li>
+          <li className={css.textItem}>Height</li>
+          <li className={css.textItem}>Tank</li>
+          <li className={css.textItem}>Comsumption</li>
         </ul>
-        <ul>
-          <li>{camper.form}</li>
-          <li>{camper.length}</li>
-          <li>{camper.width}</li>
-          <li>{camper.height}</li>
-          <li>{camper.tank}</li>
-          <li>{camper.consumption}</li>
+        <ul className={css.list}>
+          <li className={css.textItem}>{camper.form}</li>
+          <li className={css.textItem}>{camper.length}</li>
+          <li className={css.textItem}>{camper.width}</li>
+          <li className={css.textItem}>{camper.height}</li>
+          <li className={css.textItem}>{camper.tank}</li>
+          <li className={css.textItem}>{camper.consumption}</li>
         </ul>
       </div>
     </div>
