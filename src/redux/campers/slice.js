@@ -5,13 +5,21 @@ const initialState = {
   items: [],
   item: null,
 
+  perPage: 4,
+  currentPage: 1,
+  totalVisible: 4,
+
   loading: false,
   error: null,
 };
 const campersSlice = createSlice({
   name: "campers",
   initialState,
-  reducers: {},
+  reducers: {
+    incrementVisible: (state) => {
+      state.totalVisible += state.perPage;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(fetchAllCampers.pending, (state) => {
@@ -37,5 +45,7 @@ const campersSlice = createSlice({
         state.loading = false;
       }),
 });
+
+export const { incrementVisible } = campersSlice.actions;
 
 export default campersSlice.reducer;

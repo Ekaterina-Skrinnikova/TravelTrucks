@@ -28,8 +28,9 @@ export default function TrucksCard({ camper }) {
     "water",
   ];
 
+  // console.log(camper.name.split(" ").slice(0, 4).join(" "));
+
   const arrLocation = camper.location.split(",");
-  // console.log(arrLocation);
   const averageRating =
     camper.reviews.reduce((total, item) => {
       return total + item.reviewer_rating;
@@ -40,7 +41,9 @@ export default function TrucksCard({ camper }) {
       <img className={css.img} src={camper.gallery[0].thumb} />
       <div>
         <div className={css.flex}>
-          <h2 className={css.title}>{camper.name}</h2>
+          <h2 className={css.title}>
+            {camper.name.split(" ").slice(0, 4).join(" ")}
+          </h2>
           <div className={css.flexPrice}>
             <p className={css.title}>{"€" + camper.price + ",00"}</p>
             <svg className={css.iconHeart}>

@@ -1,4 +1,24 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container {
-  box-sizing: border-box;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
   width: 888px;
+}
+
+.btn {
+  width: 145px;
+  border: 1px solid rgba(218, 221, 225, 1);
+  background-color: transparent;
+  color: rgba(16, 24, 40, 1);
+}
+
+.btn:hover {
+  border: 1px solid #d84343;
 }
