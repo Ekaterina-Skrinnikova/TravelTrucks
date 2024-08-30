@@ -1,10 +1,11 @@
-import { Field, Formik } from "formik";
-import Text from "../Text/Text";
-import { Form } from "react-router-dom";
+import { Field, Formik, Form } from "formik";
 import Button from "../Button/Button";
+import toast from "react-hot-toast";
+import css from "../../components/BookForm/BookForm.module.css";
 
 export default function BookForm() {
   const handleSubmit = (values, actions) => {
+    toast.success("Your data send!!!");
     actions.resetForm();
   };
   return (
@@ -13,18 +14,45 @@ export default function BookForm() {
         name: "",
         email: "",
         date: "",
+        comment: "",
       }}
       onSubmit={handleSubmit}
     >
-      <Text>Book your campervan now</Text>
-      <Text>Stay connected! We are always ready to help you.</Text>
-      <Form>
-        <Field type="text" placeHolder="Name*"></Field>
-        <Field type="email" placeHolder="Email*"></Field>
-        <Field type="date" placeHolder="Booking date*"></Field>
-        <Field type="" placeHolder="Comment"></Field>
+      <Form className={css.container}>
+        <h3 className={css.title}>Book your campervan now</h3>
+        <p className={css.text}>
+          Stay connected! We are always ready to help you.
+        </p>
+        <div className={css.wrapper}>
+          <Field
+            className={css.input}
+            type="text"
+            name="name"
+            placeholder="Name*"
+          ></Field>
+          <Field
+            className={css.input}
+            type="email"
+            name="email"
+            placeholder="Email*"
+          ></Field>
+          <Field
+            className={css.input}
+            type="date"
+            name="date"
+            placeholder="Booking date*"
+          ></Field>
+          <Field
+            className={css.textarea}
+            as="textarea"
+            name="comment"
+            placeholder="Comment"
+          ></Field>
+        </div>
 
-        <Button>Send</Button>
+        <div className={css.btn}>
+          <Button type="submit">Send</Button>
+        </div>
       </Form>
     </Formik>
   );

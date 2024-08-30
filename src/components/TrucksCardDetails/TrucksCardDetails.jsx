@@ -11,6 +11,7 @@ export default function TrucksCardDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const camper = useSelector(selectCamper);
+  console.log(camper);
 
   useEffect(() => {
     dispatch(fetchCamperById(id));

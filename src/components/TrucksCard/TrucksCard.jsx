@@ -2,10 +2,9 @@ import clsx from "clsx";
 import Button from "../Button/Button";
 import sprite from "../../images/sprite.svg";
 import css from "../../components/TrucksCard/TrucksCard.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function TrucksCard({ camper }) {
-  const navigate = useNavigate();
   const arrIcon = [
     "icon-diagram",
     "icon-fuel-pump",
@@ -28,14 +27,13 @@ export default function TrucksCard({ camper }) {
     "gas",
     "water",
   ];
+
+  const arrLocation = camper.location.split(",");
+  // console.log(arrLocation);
   const averageRating =
     camper.reviews.reduce((total, item) => {
       return total + item.reviewer_rating;
     }, 0) / camper.reviews.length;
-
-  const handleClick = () => {
-    navigate("/catalog/:id");
-  };
 
   return (
     <div className={css.container}>
@@ -44,7 +42,7 @@ export default function TrucksCard({ camper }) {
         <div className={css.flex}>
           <h2 className={css.title}>{camper.name}</h2>
           <div className={css.flexPrice}>
-            <p className={css.title}>€{camper.price}.00</p>
+            <p className={css.title}>{"€" + camper.price + ",00"}</p>
             <svg className={css.iconHeart}>
               <use href={`${sprite}#icon-heart`}></use>
             </svg>
@@ -57,19 +55,19 @@ export default function TrucksCard({ camper }) {
               <use href={`${sprite}#icon-star`}></use>
             </svg>
             <p>
-              {averageRating}({camper.reviews.length} Reviews)
+              {averageRating.toFixed(1)}({camper.reviews.length} Reviews)
             </p>
           </div>
           <div className={css.flexLocation}>
             <svg className={css.icon}>
               <use href={`${sprite}#icon-Map`}></use>
             </svg>
-            <p>{camper.location}</p>
+            <p>{arrLocation[1] + ", " + arrLocation[0]}</p>
           </div>
         </div>
 
-        {camper.description.length > 60 ? (
-          <p className={css.text}>{camper.description.slice(0, 60) + "..."}</p>
+        {camper.description.length > 55 ? (
+          <p className={css.text}>{camper.description.slice(0, 55) + "..."}</p>
         ) : (
           <p className={css.text}>{camper.description}</p>
         )}
@@ -90,7 +88,7 @@ export default function TrucksCard({ camper }) {
         </ul>
 
         <Link to={`/catalog/${camper.id}`}>
-          <Button onClick={handleClick}>Show more</Button>
+          <Button type="button">Show more</Button>
         </Link>
       </div>
     </div>
