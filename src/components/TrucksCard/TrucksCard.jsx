@@ -92,7 +92,7 @@ export default function TrucksCard({ camper }) {
         </ul>
 
         <Link to={`/catalog/${camper.id}`}>
-          <Button type="button">Show more</Button>
+          <Button className={css.btn}>Show more</Button>
         </Link>
       </div>
     </div>

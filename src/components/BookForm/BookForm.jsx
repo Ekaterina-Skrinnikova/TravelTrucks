@@ -86,8 +86,10 @@ export default function BookForm() {
         ></textarea>
       </div>
 
-      <div className={css.btn}>
-        <Button type="submit">Send</Button>
+      <div className={css.btnWrraper}>
+        <Button type="submit" className={css.btn}>
+          Send
+        </Button>
       </div>
     </form>
   );

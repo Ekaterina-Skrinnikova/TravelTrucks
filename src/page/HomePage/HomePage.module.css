@@ -35,3 +35,7 @@
       url(../../images/hero-2x.jpg);
   }
 }
+
+.btn:hover {
+  background-color: #d84343;
+}

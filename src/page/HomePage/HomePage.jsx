@@ -10,7 +10,7 @@ export default function HomePage() {
         You can find everything you want in our catalog
       </p>
       <Link to="/catalog">
-        <Button>View Now</Button>
+        <Button className={css.btn}>View Now</Button>
       </Link>
     </div>
   );

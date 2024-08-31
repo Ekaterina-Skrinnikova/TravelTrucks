@@ -85,3 +85,7 @@
   width: 20px;
   height: 20px;
 }
+
+.btn:hover {
+  background-color: #d84343;
+}

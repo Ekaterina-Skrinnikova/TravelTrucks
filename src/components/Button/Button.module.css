@@ -12,7 +12,3 @@
   line-height: calc(24 / 16);
   letter-spacing: -0.005em;
 }
-
-.btn:hover {
-  background-color: #d84343;
-}

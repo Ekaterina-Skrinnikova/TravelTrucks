@@ -7,11 +7,3 @@ export default function CustomInput({ value, onClick }) {
     </div>
   );
 }
-
-// export const CustomInput = forwardRef(({ value, onClick }, ref) =>
-
-//     <button type="button" className={css.input} onClick={onClick} ref={ref}>
-//       {value || "Booking date*"}
-//     </button>
-
-// );

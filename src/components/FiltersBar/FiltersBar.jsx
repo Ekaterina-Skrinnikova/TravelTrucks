@@ -151,7 +151,7 @@ export default function FiltersBar() {
         </li>
       </ul>
 
-      <Button>Search</Button>
+      <Button className={css.btn}>Search</Button>
     </div>
   );
 }
