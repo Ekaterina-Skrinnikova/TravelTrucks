@@ -28,8 +28,6 @@ export default function TrucksCard({ camper }) {
     "water",
   ];
 
-  // console.log(camper.name.split(" ").slice(0, 4).join(" "));
-
   const arrLocation = camper.location.split(",");
   const averageRating =
     camper.reviews.reduce((total, item) => {
@@ -58,7 +56,7 @@ export default function TrucksCard({ camper }) {
               <use href={`${sprite}#icon-star`}></use>
             </svg>
             <p>
-              {averageRating.toFixed(1)}({camper.reviews.length} Reviews)
+              {averageRating.toFixed(1)}({camper.reviews.length + " Reviews"} )
             </p>
           </div>
           <div className={css.flexLocation}>
@@ -76,18 +74,21 @@ export default function TrucksCard({ camper }) {
         )}
 
         <ul className={css.flexList}>
-          {arrIcon.map((icon, i) => (
-            <li className={css.item} key={i}>
-              <svg className={css.iconList}>
-                <use href={`${sprite}#${icon}`}></use>
-              </svg>
-              {typeof camper[arrKey[i]] === "boolean" ? (
-                <p>{arrKey[i]}</p>
-              ) : (
-                <p>{camper[arrKey[i]]}</p>
-              )}
-            </li>
-          ))}
+          {arrIcon.map((icon, i) => {
+            if (i < 5)
+              return (
+                <li className={css.item} key={i}>
+                  <svg className={css.iconList}>
+                    <use href={`${sprite}#${icon}`}></use>
+                  </svg>
+                  {typeof camper[arrKey[i]] === "boolean" ? (
+                    <p>{arrKey[i]}</p>
+                  ) : (
+                    <p>{camper[arrKey[i]]}</p>
+                  )}
+                </li>
+              );
+          })}
         </ul>
 
         <Link to={`/catalog/${camper.id}`}>

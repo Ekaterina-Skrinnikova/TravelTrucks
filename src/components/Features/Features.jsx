@@ -28,7 +28,10 @@ export default function Features() {
   ];
 
   const camper = useSelector(selectCamper);
-  // console.log(camper);
+
+  if (!camper) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className={css.container}>

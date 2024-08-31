@@ -107,3 +107,13 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.iconStar {
+  width: 16px;
+  height: 16px;
+  fill: rgba(242, 244, 247, 1);
+}
+
+.iconStar.filled {
+  fill: rgba(255, 197, 49, 1);
+}

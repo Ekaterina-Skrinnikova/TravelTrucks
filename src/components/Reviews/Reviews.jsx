@@ -22,21 +22,20 @@ export default function Reviews() {
             <div>
               <p>{item.reviewer_name}</p>
               <div className={css.wrapper}>
-                <svg className={css.icon}>
-                  <use href={`${sprite}#icon-star`}></use>
-                </svg>
-                <svg className={css.icon}>
-                  <use href={`${sprite}#icon-star`}></use>
-                </svg>
-                <svg className={css.icon}>
-                  <use href={`${sprite}#icon-star`}></use>
-                </svg>
-                <svg className={css.icon}>
-                  <use href={`${sprite}#icon-star`}></use>
-                </svg>
-                <svg className={css.icon}>
-                  <use href={`${sprite}#icon-star`}></use>
-                </svg>
+                {[...Array(5)].map((_, index) => {
+                  return (
+                    <svg
+                      key={index}
+                      className={
+                        index < item.reviewer_rating
+                          ? "iconStar filled"
+                          : "iconStar "
+                      }
+                    >
+                      <use href={`${sprite}#icon-star`}></use>
+                    </svg>
+                  );
+                })}
               </div>
             </div>
           </div>

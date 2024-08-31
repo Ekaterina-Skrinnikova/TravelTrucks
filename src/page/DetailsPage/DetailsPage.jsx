@@ -13,7 +13,6 @@ import { useEffect } from "react";
 export default function DetailsPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  //  const camper = useSelector(selectCamper);
 
   useEffect(() => {
     dispatch(fetchCamperById(id));
