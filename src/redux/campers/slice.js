@@ -8,6 +8,7 @@ const initialState = {
   currentPage: 1,
   perPage: 4,
   totalVisible: 4,
+  date: null,
 
   loading: false,
   error: null,
@@ -20,6 +21,10 @@ const campersSlice = createSlice({
     incrementVisible: (state) => {
       state.totalVisible += state.perPage;
     },
+
+    setDate: (state, action) => {
+      state.date = action.payload;
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -31,7 +36,7 @@ const campersSlice = createSlice({
         state.items = action.payload;
       })
       .addCase(fetchAllCampers.rejected, (state, action) => {
-        state.error = action.payload;
+        state.error = action.payload || action.error.message;
         state.loading = false;
       })
       .addCase(fetchCamperById.pending, (state) => {
@@ -42,7 +47,7 @@ const campersSlice = createSlice({
         state.item = action.payload;
       })
       .addCase(fetchCamperById.rejected, (state, action) => {
-        state.error = action.payload;
+        state.error = action.payload || action.error.message;
         state.loading = false;
       }),
 });

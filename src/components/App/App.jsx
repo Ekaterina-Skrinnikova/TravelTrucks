@@ -1,15 +1,16 @@
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import HomePage from "../../page/HomePage/HomePage";
 import CatalogPage from "../../page/CatalogPage/CatalogPage";
 import DetailsPage from "../../page/DetailsPage/DetailsPage";
 import Features from "../../components/Features/Features";
 import Reviews from "../../components/Reviews/Reviews";
-
 import Layout from "../Layout/Layout";
 
 export default function App() {
   return (
     <Layout>
+      <Toaster />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
