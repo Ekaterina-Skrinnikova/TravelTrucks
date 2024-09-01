@@ -1,7 +1,10 @@
-.container {
-  margin: 0 auto;
+.containerPage {
   padding-top: 71px;
   max-width: 1440px;
   /* padding-left: 64px;
   padding-right: 64px; */
+}
+
+.container {
+  margin: 0 auto;
 }
