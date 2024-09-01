@@ -50,7 +50,6 @@ const filtersSlice = createSlice({
 export const selectFiltredCampers = createSelector(
   [(state) => state.campers.campers, (state) => state.filters],
   (campers, filters) => {
-    console.log(campers, filters);
     return campers.filter((camper) => {
       const matchesLocation = camper.location
         .toLowerCase()
