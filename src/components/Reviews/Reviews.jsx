@@ -2,12 +2,13 @@ import { useSelector } from "react-redux";
 import { selectCamper } from "../../redux/campers/selectors";
 import sprite from "../../images/sprite.svg";
 import css from "../../components/Reviews/Reviews.module.css";
+import Loader from "../Loader/Loader";
 
 export default function Reviews() {
   const camper = useSelector(selectCamper);
 
   if (!camper) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   return (

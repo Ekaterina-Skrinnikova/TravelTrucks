@@ -3,31 +3,9 @@ import Button from "../Button/Button";
 import sprite from "../../images/sprite.svg";
 import css from "../../components/TrucksCard/TrucksCard.module.css";
 import { Link } from "react-router-dom";
+import { arrIcon, arrKey } from "../../constants";
 
 export default function TrucksCard({ camper }) {
-  const arrIcon = [
-    "icon-diagram",
-    "icon-fuel-pump",
-    "icon-wind",
-    "icon-bi_droplet",
-    "icon-cup-hot",
-    "icon-tv",
-    "icon-ui-radios",
-  ];
-  const arrKey = [
-    "transmission",
-    "engine",
-    "AC",
-    "bathroom",
-    "kitchen",
-    "TV",
-    "radio",
-    "refrigerator",
-    "microwave",
-    "gas",
-    "water",
-  ];
-
   const arrLocation = camper.location.split(",");
   const averageRating =
     camper.reviews.reduce((total, item) => {

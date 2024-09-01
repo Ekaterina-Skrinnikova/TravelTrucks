@@ -3,12 +3,13 @@ import sprite from "../../images/sprite.svg";
 import css from "../../components/TrucksCardDetails/TrucksCardDetails.module.css";
 import { useSelector } from "react-redux";
 import { selectCamper } from "../../redux/campers/selectors";
+import Loader from "../Loader/Loader";
 
 export default function TrucksCardDetails() {
   const camper = useSelector(selectCamper);
 
   if (!camper) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
   const arrLocation = camper.location.split(",");
   const averageRating =

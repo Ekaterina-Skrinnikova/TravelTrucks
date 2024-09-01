@@ -1,13 +1,9 @@
-export const selectCampers = (state) => state.campers.items;
+export const selectCampers = (state) => state.campers.campers;
 
-export const selectCamper = (state) => state.campers.item;
-
-export const selectPerPage = (state) => state.campers.perPage;
+export const selectCamper = (state) => state.campers.camper;
 
 export const selectTotalVisible = (state) => state.campers.totalVisible;
 
-export const selectDate = (state) => state.campers.date;
-
-export const selectLoading = (state) => state.campers.loading;
+export const selectIsLoading = (state) => state.campers.isLoading;
 
 export const selectError = (state) => state.campers.error;

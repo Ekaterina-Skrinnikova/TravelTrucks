@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchAllCampers } from "../../redux/campers/operations";
 import FiltersBar from "../../components/FiltersBar/FiltersBar";
 import TrucksList from "../../components/TrucksList/TrucksList";
 import css from "../CatalogPage/CatalogPage.module.css";
-import { fetchAllCampers } from "../../redux/campers/operations";
-import { useEffect } from "react";
 
 export default function CatalogPage() {
   const dispatch = useDispatch();

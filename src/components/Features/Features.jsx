@@ -2,35 +2,14 @@ import { useSelector } from "react-redux";
 import { selectCamper } from "../../redux/campers/selectors";
 import sprite from "../../images/sprite.svg";
 import css from "../../components/Features/Features.module.css";
+import Loader from "../Loader/Loader";
+import { arrIcon, arrKey } from "../../constants";
 
 export default function Features() {
-  const arrIcon = [
-    "icon-diagram",
-    "icon-fuel-pump",
-    "icon-wind",
-    "icon-ui-radios",
-    "icon-bi_droplet",
-    "icon-cup-hot",
-    "icon-tv",
-  ];
-  const arrKey = [
-    "transmission",
-    "engine",
-    "AC",
-    "radio",
-    "bathroom",
-    "kitchen",
-    "TV",
-    "refrigerator",
-    "microwave",
-    "gas",
-    "water",
-  ];
-
   const camper = useSelector(selectCamper);
 
   if (!camper) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   return (

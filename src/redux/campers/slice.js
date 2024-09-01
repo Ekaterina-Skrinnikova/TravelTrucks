@@ -1,16 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllCampers, fetchCamperById } from "./operations.js";
+import { fetchAllCampers, fetchCamperById } from "./operations";
 
 const initialState = {
-  items: [],
-  item: null,
+  campers: [],
+  camper: null,
 
   currentPage: 1,
   perPage: 4,
   totalVisible: 4,
-  date: null,
 
-  loading: false,
+  date: "",
+
+  isLoading: false,
   error: null,
 };
 
@@ -21,34 +22,30 @@ const campersSlice = createSlice({
     incrementVisible: (state) => {
       state.totalVisible += state.perPage;
     },
-
-    setDate: (state, action) => {
-      state.date = action.payload;
-    },
   },
   extraReducers: (builder) =>
     builder
       .addCase(fetchAllCampers.pending, (state) => {
-        state.loading = true;
+        state.isLoading = true;
       })
       .addCase(fetchAllCampers.fulfilled, (state, action) => {
-        state.loading = false;
-        state.items = action.payload;
+        state.campers = action.payload;
+        state.isLoading = false;
       })
       .addCase(fetchAllCampers.rejected, (state, action) => {
-        state.error = action.payload || action.error.message;
-        state.loading = false;
+        state.error = action.payload;
+        state.isLoading = false;
       })
       .addCase(fetchCamperById.pending, (state) => {
-        state.loading = true;
+        state.isLoading = true;
       })
       .addCase(fetchCamperById.fulfilled, (state, action) => {
-        state.loading = false;
-        state.item = action.payload;
+        state.camper = action.payload;
+        state.isLoading = false;
       })
       .addCase(fetchCamperById.rejected, (state, action) => {
-        state.error = action.payload || action.error.message;
-        state.loading = false;
+        state.error = action.payload;
+        state.isLoading = false;
       }),
 });
 

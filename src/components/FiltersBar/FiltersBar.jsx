@@ -3,20 +3,19 @@ import sprite from "../../images/sprite.svg";
 import css from "../FiltersBar/FiltersBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFilters } from "../../redux/filters/selectors";
-import // selectCampers,
-// selectTotalVisible,
-"../../redux/campers/selectors";
 import {
   setLocation,
   setTypeTruck,
   toggleFeature,
 } from "../../redux/filters/slice";
+// import { selectCampers } from "../../redux/campers/selectors";
 
 export default function FiltersBar() {
   const dispatch = useDispatch();
   // const campers = useSelector(selectCampers);
   const filters = useSelector(selectFilters);
-  // const totalVisible = useSelector(selectTotalVisible);
+
+  console.log(filters.location);
 
   console.log(filters.features);
 
@@ -29,7 +28,11 @@ export default function FiltersBar() {
   };
 
   const handleToggle = (feature) => {
-    dispatch(toggleFeature(feature));
+    if (filters.features) {
+      dispatch(toggleFeature(feature));
+    } else {
+      console.error("Features object is undefined");
+    }
   };
 
   return (
@@ -46,71 +49,27 @@ export default function FiltersBar() {
         placeholder="City"
       />
 
-      {/* <div>
-        <p className={css.label}>Location</p>
-        <div className={css.input}>
-          <svg className={css.iconCity}>
-            <use href={`${sprite}#icon-Map`}></use>
-          </svg>
-          <p className={css.textCity}>City</p>
-        </div>
-      </div> */}
       <p className={css.textFilter}>Filters</p>
       <ul className={css.list}>
         <li>
           <p className={css.text}>Vehicle equipment</p>
 
           <div className={css.wrapperBorder}>
-            <button
-              onClick={() => handleToggle("AC")}
-              type="button"
-              className={css.wrapper}
-            >
-              <svg className={css.icon}>
-                <use href={`${sprite}#icon-wind`}></use>
-              </svg>
-              AC
-            </button>
-            <button
-              onClick={() => handleToggle("Automatic")}
-              type="button"
-              className={css.wrapper}
-            >
-              <svg className={css.icon}>
-                <use href={`${sprite}#icon-diagram`}></use>
-              </svg>
-              Automatic
-            </button>
-            <button
-              onClick={() => handleToggle("Kitchen")}
-              type="button"
-              className={css.wrapper}
-            >
-              <svg className={css.icon}>
-                <use href={`${sprite}#icon-cup-hot`}></use>
-              </svg>
-              Kitchen
-            </button>
-            <button
-              onClick={() => handleToggle("TV")}
-              type="button"
-              className={css.wrapper}
-            >
-              <svg className={css.icon}>
-                <use href={`${sprite}#icon-tv`}></use>
-              </svg>
-              TV
-            </button>
-            <button
-              onClick={() => handleToggle("Bathroom")}
-              type="button"
-              className={css.wrapper}
-            >
-              <svg className={css.icon}>
-                <use href={`${sprite}#icon-bi_droplet`}></use>
-              </svg>
-              Bathroom
-            </button>
+            {["AC", "automatic", "kitchen", "TV", "bathroom"].map((feature) => (
+              <button
+                key={feature}
+                onClick={() => handleToggle(feature)}
+                type="button"
+                className={`${css.wrapper} ${
+                  filters.features?.[feature] ? css.active : ""
+                }`}
+              >
+                <svg className={css.icon}>
+                  <use href={`${sprite}#icon-${feature}`}></use>
+                </svg>
+                {feature.charAt(0).toUpperCase() + feature.slice(1)}
+              </button>
+            ))}
           </div>
         </li>
 
