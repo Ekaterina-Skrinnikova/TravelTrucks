@@ -46,9 +46,20 @@
   text-align: left;
 }
 
+.btnHeart {
+  border-color: transparent;
+  background-color: transparent;
+}
+
 .iconHeart {
   width: 26px;
   height: 24px;
+}
+
+.active {
+  width: 26px;
+  height: 24px;
+  fill: #d84343;
 }
 
 .icon {

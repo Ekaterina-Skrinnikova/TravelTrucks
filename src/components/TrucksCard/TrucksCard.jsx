@@ -4,13 +4,29 @@ import sprite from "../../images/sprite.svg";
 import css from "../../components/TrucksCard/TrucksCard.module.css";
 import { Link } from "react-router-dom";
 import { arrIcon, arrKey } from "../../constants";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, deleteFavorite } from "../../redux/filters/slice";
+import { selectFavorites } from "../../redux/filters/selectors";
 
 export default function TrucksCard({ camper }) {
-  const arrLocation = camper.location.split(",");
+  const dispatch = useDispatch();
+  const arrLocation = camper.location ? camper.location.split(",") : [];
+  const favorites = useSelector(selectFavorites) || [];
+  console.log(favorites);
+  const isFavorite = favorites.includes(camper.id);
+
   const averageRating =
     camper.reviews.reduce((total, item) => {
       return total + item.reviewer_rating;
     }, 0) / camper.reviews.length;
+
+  const handleFavoriteToggle = () => {
+    if (isFavorite) {
+      dispatch(deleteFavorite(camper.id));
+    } else {
+      dispatch(addFavorite(camper.id));
+    }
+  };
 
   return (
     <div className={css.container}>
@@ -22,9 +38,11 @@ export default function TrucksCard({ camper }) {
           </h2>
           <div className={css.flexPrice}>
             <p className={css.title}>{"€" + camper.price + ",00"}</p>
-            <svg className={css.iconHeart}>
-              <use href={`${sprite}#icon-heart`}></use>
-            </svg>
+            <button onClick={handleFavoriteToggle} className={css.btnHeart}>
+              <svg className={isFavorite ? css.active : css.iconHeart}>
+                <use href={`${sprite}#icon-heart`}></use>
+              </svg>
+            </button>
           </div>
         </div>
 
@@ -60,9 +78,14 @@ export default function TrucksCard({ camper }) {
                     <use href={`${sprite}#${icon}`}></use>
                   </svg>
                   {typeof camper[arrKey[i]] === "boolean" ? (
-                    <p>{arrKey[i]}</p>
+                    <p>
+                      {arrKey[i].charAt(0).toUpperCase() + arrKey[i].slice(1)}
+                    </p>
                   ) : (
-                    <p>{camper[arrKey[i]]}</p>
+                    <p>
+                      {camper[arrKey[i]].charAt(0).toUpperCase() +
+                        camper[arrKey[i]].slice(1)}
+                    </p>
                   )}
                 </li>
               );

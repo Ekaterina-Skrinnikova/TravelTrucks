@@ -8,16 +8,15 @@ import {
   setTypeTruck,
   toggleFeature,
 } from "../../redux/filters/slice";
-// import { selectCampers } from "../../redux/campers/selectors";
 
 export default function FiltersBar() {
   const dispatch = useDispatch();
-  // const campers = useSelector(selectCampers);
+
   const filters = useSelector(selectFilters);
 
-  console.log(filters.location);
+  // console.log(filters.typeTruck);
 
-  console.log(filters.features);
+  // console.log(filters.features);
 
   const handleLocationChange = (evt) => {
     dispatch(setLocation(evt.target.value));
@@ -50,6 +49,7 @@ export default function FiltersBar() {
       />
 
       <p className={css.textFilter}>Filters</p>
+
       <ul className={css.list}>
         <li>
           <p className={css.text}>Vehicle equipment</p>
@@ -76,36 +76,21 @@ export default function FiltersBar() {
         <li>
           <p className={css.text}>Vehicle type</p>
           <div className={css.wrapperBorder}>
-            <button
-              className={css.wrapper}
-              onClick={() => handleTypeTruckChange("Van")}
-              type="button"
-            >
-              <svg className={css.icon}>
-                <use href={`${sprite}#icon-bi_grid-1x2`}></use>
-              </svg>
-              Van
-            </button>
-            <button
-              onClick={() => handleTypeTruckChange("Fully Integrated")}
-              type="button"
-              className={css.wrapper}
-            >
-              <svg className={css.icon}>
-                <use href={`${sprite}#icon-bi_grid`}></use>
-              </svg>
-              Fully Integrated
-            </button>
-            <button
-              onClick={() => handleTypeTruckChange("Alcove")}
-              type="button"
-              className={css.wrapper}
-            >
-              <svg className={css.icon}>
-                <use href={`${sprite}#icon-bi_grid-3x3-gap`}></use>
-              </svg>
-              Alcove
-            </button>
+            {["van", "fully Integrated", "alcove"].map((typeTruck) => (
+              <button
+                key={typeTruck}
+                onClick={() => handleTypeTruckChange(typeTruck)}
+                type="button"
+                className={`${css.wrapper} ${
+                  filters.typeTruck ? css.active : ""
+                }`}
+              >
+                <svg className={css.icon}>
+                  <use href={`${sprite}#icon-${typeTruck}`}></use>
+                </svg>
+                {typeTruck.charAt(0).toUpperCase() + typeTruck.slice(1)}
+              </button>
+            ))}
           </div>
         </li>
       </ul>
