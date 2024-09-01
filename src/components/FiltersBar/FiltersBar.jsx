@@ -39,14 +39,19 @@ export default function FiltersBar() {
       <label htmlFor="location" className={css.label}>
         Location
       </label>
-      <input
-        className={css.input}
-        value={filters.location}
-        onChange={handleLocationChange}
-        id="location"
-        type="text"
-        placeholder="City"
-      />
+      <div className={css.inputContainer}>
+        <input
+          className={css.input}
+          value={filters.location}
+          onChange={handleLocationChange}
+          id="location"
+          type="text"
+          placeholder="City"
+        />
+        <svg className={css.iconInput}>
+          <use href={`${sprite}#icon-Map`}></use>
+        </svg>
+      </div>
 
       <p className={css.textFilter}>Filters</p>
 

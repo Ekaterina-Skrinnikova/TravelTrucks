@@ -21,9 +21,12 @@ export default function Features() {
               <use href={`${sprite}#${icon}`}></use>
             </svg>
             {typeof camper[arrKey[i]] === "boolean" ? (
-              <p>{arrKey[i]}</p>
+              <p> {arrKey[i].charAt(0).toUpperCase() + arrKey[i].slice(1)}</p>
             ) : (
-              <p>{camper[arrKey[i]]}</p>
+              <p>
+                {camper[arrKey[i]].charAt(0).toUpperCase() +
+                  camper[arrKey[i]].slice(1)}
+              </p>
             )}
           </li>
         ))}

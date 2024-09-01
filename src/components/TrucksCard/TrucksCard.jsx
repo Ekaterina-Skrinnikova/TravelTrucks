@@ -12,7 +12,6 @@ export default function TrucksCard({ camper }) {
   const dispatch = useDispatch();
   const arrLocation = camper.location ? camper.location.split(",") : [];
   const favorites = useSelector(selectFavorites) || [];
-  console.log(favorites);
   const isFavorite = favorites.includes(camper.id);
 
   const averageRating =
