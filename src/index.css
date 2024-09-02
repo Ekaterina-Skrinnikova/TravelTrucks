@@ -108,6 +108,13 @@ body {
   box-sizing: border-box;
 }
 
+.container {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding-left: 64px;
+  padding-right: 64px;
+}
+
 .iconStar {
   width: 16px;
   height: 16px;

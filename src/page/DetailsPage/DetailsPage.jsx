@@ -22,7 +22,7 @@ export default function DetailsPage() {
     return clsx(css.link, isActive && css.active);
   };
   return (
-    <div className={css.container}>
+    <div className={clsx("container", css.container)}>
       <TrucksCardDetails />
 
       <div>

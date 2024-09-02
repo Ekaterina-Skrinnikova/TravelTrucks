@@ -4,6 +4,7 @@ import { fetchAllCampers } from "../../redux/campers/operations";
 import FiltersBar from "../../components/FiltersBar/FiltersBar";
 import TrucksList from "../../components/TrucksList/TrucksList";
 import css from "../CatalogPage/CatalogPage.module.css";
+import clsx from "clsx";
 
 export default function CatalogPage() {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ export default function CatalogPage() {
   }, [dispatch]);
 
   return (
-    <div className={css.container}>
+    <div className={clsx("container", css.container)}>
       <FiltersBar />
       <TrucksList />
     </div>

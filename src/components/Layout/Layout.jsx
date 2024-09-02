@@ -3,7 +3,7 @@ import css from "../Layout/Layout.module.css";
 
 export default function Layout({ children }) {
   return (
-    <div className={css.container}>
+    <div>
       <AppBar />
       <div className={css.containerPage}>{children}</div>
     </div>

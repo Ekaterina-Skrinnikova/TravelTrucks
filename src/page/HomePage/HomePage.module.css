@@ -1,22 +1,9 @@
-.title {
-  margin-bottom: 16px;
-  font-size: 48px;
-  font-weight: 600;
-  line-height: calc(32 / 48);
-  color: rgba(247, 247, 247, 1);
-}
-
-.text {
-  margin-bottom: 40px;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: calc(32 / 24);
-  color: rgba(247, 247, 247, 1);
+.hero {
+  background-color: #6c717b;
+  padding: 260px 64px;
 }
 
 .overlay {
-  width: 100%;
-  padding: 260px 64px;
   background-size: cover;
   background-image: linear-gradient(
       to right,
@@ -35,6 +22,22 @@
       ),
       url(../../images/hero-2x.jpg);
   }
+}
+
+.title {
+  margin-bottom: 16px;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: calc(32 / 48);
+  color: rgba(247, 247, 247, 1);
+}
+
+.text {
+  margin-bottom: 40px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: calc(32 / 24);
+  color: rgba(247, 247, 247, 1);
 }
 
 .btn:hover {
