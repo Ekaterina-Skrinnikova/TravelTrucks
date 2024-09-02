@@ -15,6 +15,7 @@
 }
 
 .overlay {
+  width: 100%;
   padding: 260px 64px;
   background-size: cover;
   background-image: linear-gradient(
