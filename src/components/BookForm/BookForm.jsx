@@ -1,10 +1,10 @@
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Button from "../Button/Button";
 import toast from "react-hot-toast";
-import css from "../../components/BookForm/BookForm.module.css";
-import { useState } from "react";
+import Button from "../Button/Button";
 import CustomInput from "../CustomInput/CustomInput";
+import css from "../../components/BookForm/BookForm.module.css";
 
 export default function BookForm() {
   const [formValues, setFormValues] = useState({
@@ -12,15 +12,11 @@ export default function BookForm() {
     email: "",
     comment: "",
   });
-  const [dateRange, setDateRange] = useState([null, null]);
-  const [startDate, endDate] = dateRange;
+  const [date, setDate] = useState(null);
 
   const isFormValid = () => {
     return (
-      formValues.name.trim() !== "" &&
-      formValues.email.trim() !== "" &&
-      startDate &&
-      endDate
+      formValues.name.trim() !== "" && formValues.email.trim() !== "" && date
     );
   };
 
@@ -34,7 +30,7 @@ export default function BookForm() {
 
     toast.success("Your data send!!!");
     setFormValues({ name: "", email: "", comment: "" });
-    setDateRange([null, null]);
+    setDate(null);
   };
 
   const handleChange = (e) => {
@@ -68,13 +64,15 @@ export default function BookForm() {
         />
 
         <DatePicker
-          selected={startDate}
-          onChange={(update) => setDateRange(update)}
-          startDate={startDate}
-          endDate={endDate}
-          selectsRange
+          selected={date}
+          onChange={(date) => setDate(date)}
+          // startDate={startDate}
+          // endDate={endDate}
+          // selectsRange
           dateFormat="dd.MM.yyyy"
           customInput={<CustomInput />}
+          className="custom-datepicker"
+          calendarClassName="custom-datepicker"
         />
 
         <textarea
