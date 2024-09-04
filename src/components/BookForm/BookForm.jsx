@@ -62,18 +62,17 @@ export default function BookForm() {
           onChange={handleChange}
           placeholder="Email*"
         />
-
-        <DatePicker
-          selected={date}
-          onChange={(date) => setDate(date)}
-          // startDate={startDate}
-          // endDate={endDate}
-          // selectsRange
-          dateFormat="dd.MM.yyyy"
-          customInput={<CustomInput />}
-          className="custom-datepicker"
-          calendarClassName="custom-datepicker"
-        />
+        <div className="custom-datepicker">
+          <DatePicker
+            selected={date}
+            onChange={(date) => setDate(date)}
+            minDate={new Date()}
+            dateFormat="dd.MM.yyyy"
+            customInput={<CustomInput />}
+            useWeekdaysShort={true}
+            calendarClassName="custom-datepicker"
+          />
+        </div>
 
         <textarea
           className={css.textarea}

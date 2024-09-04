@@ -129,8 +129,8 @@ body {
 
 .custom-datepicker.react-datepicker {
   font-family: Inter, sans-sarif;
-  background-color: #fff; /* Фон календаря */
-  border-radius: 12px; /* Закруглення календаря */
+  background-color: #fff;
+  border-radius: 12px;
   border: 1px solid rgba(71, 84, 103, 1);
   font-size: 14px;
   line-height: calc(16.8 / 14);
@@ -138,8 +138,8 @@ body {
 }
 
 .custom-datepicker .react-datepicker__header {
-  background-color: #fff; /* Фон заголовка календаря */
-  border-top-left-radius: 12px; /* Закруглення верхнього лівого кута */
+  background-color: #fff;
+  border-top-left-radius: 12px;
   border-color: rgba(71, 84, 103, 1);
 }
 
@@ -147,6 +147,13 @@ body {
   .react-datepicker__header:not(.react-datepicker__header--has-time-select) {
   border-color: rgba(71, 84, 103, 1);
   border-top-right-radius: 12px;
+}
+
+.custom-datepicker .react-datepicker__navigation-icon::before {
+  border-color: rgba(71, 84, 103, 1);
+  border-width: 2px 2px 0 0;
+  width: 11px;
+  height: 11px;
 }
 
 .custom-datepicker .react-datepicker__current-month {
@@ -158,17 +165,37 @@ body {
 }
 .custom-datepicker .react-datepicker__day {
   padding: 5px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 36px;
   height: 32px;
-  border-radius: 50%; /* Закруглення днів */
+  border-radius: 50%;
   font-size: 14px;
+  font-weight: 400;
   line-height: calc(16.8 / 14);
   text-align: center;
+  color: rgba(10, 24, 17, 1);
+}
+
+.custom-datepicker .react-datepicker__day--keyboard-selected {
+  background-color: rgba(242, 244, 247, 1);
+  color: rgba(16, 24, 40, 1);
+}
+
+.custom-datepicker .react-datepicker__day--disabled {
+  color: rgba(71, 84, 103, 1);
 }
 
 .custom-datepicker .react-datepicker__day--selected {
-  background-color: rgba(71, 84, 103, 1); /* Фон для вибраного дня */
+  background-color: rgba(71, 84, 103, 1);
   color: white;
+}
+
+.custom-datepicker .react-datepicker__day-names {
+  padding: 0 12px 0 12px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .custom-datepicker .react-datepicker__day-name {
@@ -184,13 +211,29 @@ body {
 .custom-datepicker .react-datepicker__day:hover {
   width: 36px;
   height: 32px;
-  border-radius: 50%; /* Закруглення днів */
+  border-radius: 50%;
   padding: 5px;
-  background-color: #ddd; /* Фон для дня при наведенні */
+  background-color: #ddd;
 }
 
-/* .custom-datepicker
+.container-datepicker {
+  position: relative;
+}
+
+.custom-triangle {
+  position: absolute;
+  /* left: 138px; */
+}
+
+.custom-datepicker
   .react-datepicker-popper[data-placement^="bottom"]
   .react-datepicker__triangle {
-  fill: ;
-} */
+  width: 28px;
+  fill: #fff;
+  color: transparent;
+}
+
+.custom-datepicker .react-datepicker-popper .react-datepicker__triangle {
+  stroke: rgba(71, 84, 103, 1);
+  stroke-width: 1;
+}
