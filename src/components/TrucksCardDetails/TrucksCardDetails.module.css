@@ -49,10 +49,18 @@
   align-items: center;
 }
 
+.border {
+  border-bottom: 1px solid rgba(16, 24, 40, 1);
+}
+
 .flexRating,
 .flexLocation {
   display: flex;
   align-items: center;
+}
+
+.border {
+  border-bottom: 1px solid rgba(16, 24, 40, 1);
 }
 
 .iconHeart {
@@ -69,6 +77,12 @@
   fill: rgba(255, 197, 49, 1);
 }
 
-.text {
+.textLocation {
+  margin-left: 4px;
+}
+
+p.text {
+  font-size: 16px;
+  line-height: calc(24 / 16);
   color: rgba(71, 84, 103, 1);
 }

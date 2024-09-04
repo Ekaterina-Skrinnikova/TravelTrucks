@@ -26,7 +26,7 @@ export default function TrucksCardDetails() {
           <svg className={clsx(css.icon, css.iconStar)}>
             <use href={`${sprite}#icon-star`}></use>
           </svg>
-          <p>
+          <p className={css.border}>
             {averageRating.toFixed(1)}({camper.reviews.length + " Reviews"} )
           </p>
         </div>
@@ -34,7 +34,9 @@ export default function TrucksCardDetails() {
           <svg className={css.icon}>
             <use href={`${sprite}#icon-Map`}></use>
           </svg>
-          <p>{arrLocation[1] + ", " + arrLocation[0]}</p>
+          <p className={css.textLocation}>
+            {arrLocation[1] + ", " + arrLocation[0]}
+          </p>
         </div>
       </div>
 

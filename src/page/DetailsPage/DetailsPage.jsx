@@ -3,16 +3,13 @@ import BookForm from "../../components/BookForm/BookForm";
 import css from "../../page/DetailsPage/DetailsPage.module.css";
 import { NavLink, Outlet, useParams } from "react-router-dom";
 import clsx from "clsx";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchCamperById } from "../../redux/campers/operations";
 import { Suspense, useEffect } from "react";
-import { selectCamper } from "../../redux/campers/selectors";
-import Loader from "../../components/Loader/Loader";
 
 export default function DetailsPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const camper = useSelector(selectCamper);
 
   useEffect(() => {
     dispatch(fetchCamperById(id));
@@ -35,7 +32,9 @@ export default function DetailsPage() {
           </NavLink>
         </div>
         <div className={css.box}>
-          <Suspense> {camper ? <Outlet /> : <Loader />}</Suspense>
+          <Suspense>
+            <Outlet />
+          </Suspense>
 
           <BookForm />
         </div>

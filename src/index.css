@@ -178,6 +178,7 @@ body {
   font-weight: 600;
   line-height: calc(14.4 / 12);
   color: rgba(71, 84, 103, 1);
+  text-transform: uppercase;
 }
 
 .custom-datepicker .react-datepicker__day:hover {
@@ -187,3 +188,9 @@ body {
   padding: 5px;
   background-color: #ddd; /* Фон для дня при наведенні */
 }
+
+/* .custom-datepicker
+  .react-datepicker-popper[data-placement^="bottom"]
+  .react-datepicker__triangle {
+  fill: ;
+} */

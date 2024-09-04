@@ -25,6 +25,7 @@ export default function App() {
             <Route path="features" element={<Features />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </Suspense>
     </Layout>
